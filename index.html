@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solve with Genesis — Business Risk & Security Advisory</title>
+<meta name="description" content="Former utility CISO. Right-sized security and risk programs for organizations who don't need more security — they need better decisions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #10151c;
+    --bg-panel: #161d26;
+    --bg-panel-2: #1b2430;
+    --line: #2c3947;
+    --line-bright: #3d4f61;
+    --text: #e9eaec;
+    --text-muted: #9aa5b1;
+    --text-faint: #6b7684;
+    --brass: #c68a3d;
+    --brass-bright: #e8a94f;
+    --rust: #b6684f;
+    --sage: #7a9c7e;
+    --radius: 3px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; margin: 0; color: var(--text); }
+  .mono { font-family: 'IBM Plex Mono', monospace; }
+
+  a { color: inherit; }
+  img, svg { display: block; max-width: 100%; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+
+  /* corner tick marks — blueprint registration marks */
+  .ticked { position: relative; }
+  .ticked::before, .ticked::after,
+  .ticked .tick-br, .ticked .tick-bl { content: ""; position: absolute; width: 14px; height: 14px; border: 1px solid var(--brass); opacity: 0.55; }
+  .ticked::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+  .ticked::after { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+  .ticked .tick-bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+  .ticked .tick-br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+  /* ---------- header ---------- */
+  header {
+    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(16,21,28,0.92);
+    backdrop-filter: blur(6px);
+  }
+  .nav-row { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .brand { display: flex; align-items: baseline; gap: 10px; text-decoration: none; }
+  .brand-mark { color: var(--brass); font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.12em; border: 1px solid var(--brass); padding: 3px 7px; border-radius: var(--radius); }
+  .brand-name { font-family: 'Fraunces', serif; font-size: 20px; letter-spacing: 0.01em; }
+  nav.links { display: flex; gap: 32px; font-size: 14px; color: var(--text-muted); }
+  nav.links a { text-decoration: none; transition: color 0.15s ease; }
+  nav.links a:hover { color: var(--brass-bright); }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--brass); color: #14100a; font-weight: 600; font-size: 14px;
+    padding: 11px 20px; border-radius: var(--radius); text-decoration: none;
+    border: 1px solid var(--brass); transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .btn:hover { background: var(--brass-bright); transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent; color: var(--text); border: 1px solid var(--line-bright);
+  }
+  .btn-ghost:hover { border-color: var(--brass); color: var(--brass-bright); background: transparent; }
+  .nav-mobile-hide { display: flex; }
+  @media (max-width: 720px) {
+    .nav-mobile-hide { display: none; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 96px 0 72px; border-bottom: 1px solid var(--line); }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.16em;
+    color: var(--brass); text-transform: uppercase; margin-bottom: 22px; display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ""; width: 22px; height: 1px; background: var(--brass); display: inline-block; }
+  .hero h1 {
+    font-size: clamp(34px, 5.4vw, 58px); line-height: 1.08; letter-spacing: -0.01em; max-width: 15ch;
+  }
+  .hero .sub { margin-top: 26px; font-size: 19px; color: var(--text-muted); max-width: 56ch; }
+  .hero-cta { margin-top: 38px; display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .stat-strip {
+    margin-top: 72px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line);
+  }
+  .stat { background: var(--bg-panel); padding: 22px 20px; }
+  .stat .num { font-family: 'IBM Plex Mono', monospace; font-size: 26px; color: var(--brass-bright); }
+  .stat .label { font-size: 12.5px; color: var(--text-faint); margin-top: 6px; letter-spacing: 0.02em; }
+  @media (max-width: 720px) { .stat-strip { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---------- section shell ---------- */
+  section { padding: 88px 0; border-bottom: 1px solid var(--line); }
+  .section-head { max-width: 62ch; margin-bottom: 52px; }
+  .section-head h2 { font-size: clamp(26px, 3.2vw, 36px); line-height: 1.2; }
+  .section-head .lede { margin-top: 16px; color: var(--text-muted); font-size: 17px; }
+
+  /* ---------- translator (signature element) ---------- */
+  .translator {
+    background: var(--bg-panel); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 40px; margin-top: 12px;
+  }
+  .toggle-row { display: flex; align-items: center; gap: 0; margin-bottom: 28px; }
+  .toggle-btn {
+    font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.04em;
+    padding: 10px 18px; background: transparent; border: 1px solid var(--line-bright); color: var(--text-muted);
+    cursor: pointer; transition: all 0.2s ease;
+  }
+  .toggle-btn:first-child { border-radius: var(--radius) 0 0 var(--radius); border-right: none; }
+  .toggle-btn:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+  .toggle-btn.active { background: var(--brass); border-color: var(--brass); color: #14100a; font-weight: 600; }
+  .translator-scenario { font-size: 13px; color: var(--text-faint); margin-bottom: 18px; font-family: 'IBM Plex Mono', monospace; }
+  .translator-panel { position: relative; min-height: 148px; }
+  .t-view { position: absolute; inset: 0; opacity: 0; transform: translateY(6px); transition: opacity 0.28s ease, transform 0.28s ease; pointer-events: none; }
+  .t-view.active { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .t-view .tag { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: var(--radius); margin-bottom: 14px; }
+  .t-view.eng .tag { background: rgba(182,104,79,0.15); color: var(--rust); border: 1px solid rgba(182,104,79,0.4); }
+  .t-view.biz .tag { background: rgba(122,156,126,0.15); color: var(--sage); border: 1px solid rgba(122,156,126,0.4); }
+  .t-view p { font-size: 19px; line-height: 1.55; color: var(--text); max-width: 58ch; }
+
+  /* ---------- how I think ---------- */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 12px; }
+  @media (max-width: 900px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
+  .step { border-top: 2px solid var(--brass); padding-top: 18px; }
+  .step .step-num { font-family: 'IBM Plex Mono', monospace; color: var(--brass); font-size: 13px; letter-spacing: 0.08em; }
+  .step h3 { font-size: 18px; margin-top: 10px; font-weight: 500; }
+  .step p { margin-top: 10px; color: var(--text-muted); font-size: 15px; }
+
+  /* ---------- track record ---------- */
+  .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 12px; }
+  @media (max-width: 900px) { .cases { grid-template-columns: 1fr; } }
+  .case {
+    background: var(--bg-panel); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 30px; display: flex; flex-direction: column;
+  }
+  .case h3 { font-size: 19px; line-height: 1.3; margin-bottom: 20px; min-height: 50px; }
+  .case-block { margin-bottom: 16px; }
+  .case-block .k { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 6px; }
+  .case-block .v { font-size: 14.5px; color: var(--text-muted); line-height: 1.55; }
+  .case-block.result .v { color: var(--brass-bright); }
+  .case-block:last-child { margin-bottom: 0; }
+
+  /* ---------- who i work with ---------- */
+  .who-list { margin-top: 12px; border-top: 1px solid var(--line); }
+  .who-item { display: flex; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .who-item .idx { font-family: 'IBM Plex Mono', monospace; color: var(--brass); font-size: 13px; flex-shrink: 0; width: 28px; }
+  .who-item p { color: var(--text-muted); font-size: 16px; margin: 0; }
+
+  /* ---------- philosophy ---------- */
+  .philosophy { text-align: left; padding: 100px 0; }
+  .philosophy blockquote {
+    font-family: 'Fraunces', serif; font-size: clamp(24px, 3.6vw, 38px); line-height: 1.38;
+    max-width: 20ch; margin: 0; color: var(--text); font-weight: 400;
+  }
+  .philosophy blockquote em { color: var(--brass-bright); font-style: normal; }
+  .philosophy .closer { margin-top: 36px; font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: var(--text-muted); }
+  .philosophy .closer strong { color: var(--brass-bright); font-weight: 500; }
+
+  /* ---------- contact / footer ---------- */
+  .contact { padding: 88px 0; border-bottom: none; }
+  .contact-box {
+    background: var(--bg-panel); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 56px; display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap;
+  }
+  .contact-box h2 { font-size: clamp(24px, 3vw, 32px); max-width: 16ch; }
+  .contact-box .sub { color: var(--text-muted); margin-top: 12px; max-width: 40ch; font-size: 15.5px; }
+  footer { padding: 32px 0; }
+  .foot-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--text-faint); flex-wrap: wrap; gap: 12px; }
+  .foot-row a { color: var(--text-faint); text-decoration: none; }
+  .foot-row a:hover { color: var(--brass); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-row">
+    <a class="brand" href="#top">
+      <span class="brand-mark">SG</span>
+      <span class="brand-name">Solve with Genesis</span>
+    </a>
+    <nav class="links nav-mobile-hide">
+      <a href="#how-i-think">How I Think</a>
+      <a href="#track-record">Track Record</a>
+      <a href="#who">Who I Work With</a>
+    </nav>
+    <a class="btn" href="mailto:hello@solvewithgenesis.com">Email Jonathan</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:1px solid var(--line); padding-bottom:0;">
+    <div class="wrap">
+      <div class="eyebrow">BUSINESS RISK &amp; SECURITY ADVISORY</div>
+      <h1>Business drives security.<br>Not the other way around.</h1>
+      <p class="sub">Former utility CISO. I translate boardroom risk tolerance into right-sized security programs — and stop organizations from buying more protection than the risk actually calls for.</p>
+      <div class="hero-cta">
+        <a class="btn" href="mailto:hello@solvewithgenesis.com">Email Jonathan</a>
+        <a class="btn btn-ghost" href="#track-record">See the track record</a>
+      </div>
+
+      <div class="stat-strip">
+        <div class="stat"><div class="num">$20M</div><div class="label">security budget managed</div></div>
+        <div class="stat"><div class="num">50+</div><div class="label">critical infrastructure sites secured</div></div>
+        <div class="stat"><div class="num">&lt;10%</div><div class="label">of the vendor's proposed cost</div></div>
+        <div class="stat"><div class="num">1</div><div class="label">framework, org-wide compliance</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSLATOR -->
+  <section id="translate">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">WHAT I DO</div>
+        <h2>I speak both languages.</h2>
+        <p class="lede">Executives think in outcomes. Engineers think in solutions. Most consultants are fluent in one. Here's the same risk, said both ways.</p>
+      </div>
+
+      <div class="translator ticked">
+        <span class="tick-bl"></span><span class="tick-br"></span>
+        <div class="toggle-row">
+          <button class="toggle-btn active" data-view="eng" id="btn-eng">ENGINEERING VIEW</button>
+          <button class="toggle-btn" data-view="biz" id="btn-biz">BOARDROOM VIEW</button>
+        </div>
+        <div class="translator-scenario">SCENARIO — SCADA HISTORIAN PATCH BACKLOG</div>
+        <div class="translator-panel">
+          <div class="t-view eng active" id="view-eng">
+            <span class="tag">Engineering</span>
+            <p>Patch cadence on the SCADA historian is 45 days behind policy. Three HMI nodes carry unremediated CVEs rated high severity, with no compensating network segmentation.</p>
+          </div>
+          <div class="t-view biz" id="view-biz">
+            <span class="tag">Boardroom</span>
+            <p>This gap carries roughly a 1-in-8 chance of a generation outage this year, at an estimated $4M in lost output. Closing it costs $180K and six weeks — and removes it from next quarter's audit findings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW I THINK -->
+  <section id="how-i-think">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">METHOD</div>
+        <h2>How I think.</h2>
+        <p class="lede">I don't start with frameworks or technology. I start with the business — what it depends on, what it can tolerate losing, and who's accountable for that decision.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Understand the business</h3>
+          <p>Meet every business unit. Learn what they produce, who depends on them, and how much risk they can actually tolerate.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Map to one standard</h3>
+          <p>Choose a single framework that clears every current compliance bar — and the ones coming next — instead of managing each rule separately.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Right-size the build</h3>
+          <p>Set a different implementation level per business unit. The framework sets the bar; the business sets the pace.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3>Govern it to last</h3>
+          <p>Name an owner, build the audit function, and put a review board between the org and the next expensive bad idea.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRACK RECORD -->
+  <section id="track-record">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">PROOF, NOT PROMISES</div>
+        <h2>Track record.</h2>
+        <p class="lede">Built and run as CISO for a lean, globally distributed generation, trading, and site-development organization.</p>
+      </div>
+      <div class="cases">
+        <div class="case">
+          <h3>Turned a confusing audit into a standard anyone could run</h3>
+          <div class="case-block">
+            <div class="k">Situation</div>
+            <div class="v">The compliance team wanted to audit every generation site against dense, constantly-shifting NERC CIP language, site by site.</div>
+          </div>
+          <div class="case-block">
+            <div class="k">Approach</div>
+            <div class="v">Spent several years building the case for NIST CSF as the org's single standard — one framework that satisfied CIP today and scaled to new privacy and reporting rules tomorrow.</div>
+          </div>
+          <div class="case-block result">
+            <div class="k">Result</div>
+            <div class="v">Audits became repeatable and automatable, on a standard that covered the whole org — not just the compliance team.</div>
+          </div>
+        </div>
+        <div class="case">
+          <h3>Said no to a multi-million-dollar vendor platform</h3>
+          <div class="case-block">
+            <div class="k">Situation</div>
+            <div class="v">Site vendors proposed prepackaged industrial security platforms sized for far larger plants — heavy infrastructure, heavy headcount, and locked to one manufacturer's ecosystem.</div>
+          </div>
+          <div class="case-block">
+            <div class="k">Approach</div>
+            <div class="v">Designed a bespoke, automatable alternative that worked across every vendor's equipment and ran with minimal staff.</div>
+          </div>
+          <div class="case-block result">
+            <div class="k">Result</div>
+            <div class="v">Delivered the required outcomes for under 10% of the proposed cost, across 50+ sites.</div>
+          </div>
+        </div>
+        <div class="case">
+          <h3>Turned two years of avoidance into a monthly habit</h3>
+          <div class="case-block">
+            <div class="k">Situation</div>
+            <div class="v">A VP of generation had no regular visibility into risk across his sites, and had avoided the conversation for two years.</div>
+          </div>
+          <div class="case-block">
+            <div class="k">Approach</div>
+            <div class="v">Built risk reporting that translated technical exposure into dollar-loss and probability — the language his own board already used.</div>
+          </div>
+          <div class="case-block result">
+            <div class="k">Result</div>
+            <div class="v">Monthly risk reviews became standard practice, owned by the business rather than imposed by cyber.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO I WORK WITH -->
+  <section id="who">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">FIT</div>
+        <h2>Who I work with.</h2>
+      </div>
+      <div class="who-list">
+        <div class="who-item"><span class="idx">01</span><p>Utilities, generation, and critical infrastructure operators managing multi-site regulatory complexity — NERC CIP, NIST, and whatever comes next.</p></div>
+        <div class="who-item"><span class="idx">02</span><p>Mid-market companies, particularly in regulated industries, facing a first serious audit, customer security requirement, or compliance deadline.</p></div>
+        <div class="who-item"><span class="idx">03</span><p>Boards and executives staring down an expensive, prepackaged vendor proposal and wanting an independent second opinion before they sign.</p></div>
+        <div class="who-item"><span class="idx">04</span><p>Leadership teams that know risk needs a decision-maker in the room — not just another tool on the shelf.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy" style="border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <blockquote>I'm not a cyber guy. I'm a <em>risk manager</em> who understands business — and believes security is a supporting role, never the lead.</blockquote>
+      <div class="closer">Organizations don't need more security. <strong>They need better decisions.</strong></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <div class="wrap">
+      <div class="contact-box ticked">
+        <span class="tick-bl"></span><span class="tick-br"></span>
+        <div>
+          <h2>Let's talk about where your risk actually lives.</h2>
+          <p class="sub">20-minute call, no deck required. Bring the vendor proposal you're not sure about.</p>
+        </div>
+        <a class="btn" href="mailto:hello@solvewithgenesis.com">Email Jonathan</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>© <span id="year"></span> Solve with Genesis</span>
+    <a href="mailto:hello@solvewithgenesis.com">hello@solvewithgenesis.com</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const btnEng = document.getElementById('btn-eng');
+  const btnBiz = document.getElementById('btn-biz');
+  const viewEng = document.getElementById('view-eng');
+  const viewBiz = document.getElementById('view-biz');
+
+  function showView(which) {
+    const engActive = which === 'eng';
+    btnEng.classList.toggle('active', engActive);
+    btnBiz.classList.toggle('active', !engActive);
+    viewEng.classList.toggle('active', engActive);
+    viewBiz.classList.toggle('active', !engActive);
+  }
+  btnEng.addEventListener('click', () => showView('eng'));
+  btnBiz.addEventListener('click', () => showView('biz'));
+</script>
+
+</body>
+</html>
