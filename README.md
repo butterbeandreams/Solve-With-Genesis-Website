@@ -12,7 +12,7 @@ Four-page static site. Plain HTML + one shared `style.css` — no build step, no
 
 Search all four files for these and replace with your real details:
 
-- `hello@solvewithgenesis.com` — the email CTA, repeated on every page.
+- `jonathan@solvewithgenesis.com` — the email CTA, repeated on every page.
 - `Jonathan` — used in the "Email Jonathan" button label throughout. Change if you'd rather it read generically.
 
 ## Publish it
