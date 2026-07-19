@@ -111,6 +111,10 @@ section.tight { padding: 64px 0; }
 .case-block .k { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); font-weight: 600; margin-bottom: 8px; }
 .case-block .v { font-size: 14.5px; color: var(--text); line-height: 1.6; }
 .case-block.result .v { color: var(--navy); font-weight: 500; }
+.case-list { margin: 0; padding-left: 18px; }
+.case-list li { margin-bottom: 7px; color: var(--text); font-size: 14.5px; line-height: 1.6; }
+.case-list li::marker { color: var(--gold); }
+.case-list li:last-child { margin-bottom: 0; }
 .case-question { margin-top: 18px; padding-top: 18px; border-top: 1px dashed var(--line); font-size: 14px; color: var(--muted); font-style: italic; }
 
 /* who list */
@@ -153,6 +157,10 @@ section.tight { padding: 64px 0; }
 .cta-band .sub { color: rgba(255,255,255,0.65); margin-top: 12px; max-width: 42ch; font-size: 15.5px; }
 
 footer { padding: 32px 0; }
+.foot-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px; padding-bottom: 24px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+.foot-links, .foot-contact { display: flex; gap: 22px; flex-wrap: wrap; font-size: 13.5px; }
+.foot-links a, .foot-contact a { color: var(--muted); text-decoration: none; }
+.foot-links a:hover, .foot-contact a:hover { color: var(--navy); }
 .foot-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--faint); flex-wrap: wrap; gap: 12px; }
 .foot-row a { color: var(--faint); text-decoration: none; }
 .foot-row a:hover { color: var(--navy); }
