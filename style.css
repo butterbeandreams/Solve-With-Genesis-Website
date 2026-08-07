@@ -347,3 +347,48 @@ section.tight { padding: 64px 0; }
   color: var(--text);
   line-height: 1.6;
 }
+
+/* ── Principles / Cheat Code Page ── */
+.principle-list {
+  max-width: 720px;
+}
+.principle-item {
+  display: flex;
+  gap: 28px;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+  align-items: flex-start;
+}
+.principle-list .principle-item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.principle-num {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  color: var(--gold);
+  flex-shrink: 0;
+  width: 42px;
+  line-height: 1.2;
+}
+.principle-body h3 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+.principle-body h3 .again {
+  color: var(--gold);
+  font-weight: 440;
+  font-style: italic;
+}
+.principle-body p {
+  margin: 0;
+  font-size: 15.5px;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 58ch;
+}
+@media (max-width: 560px) {
+  .principle-item { gap: 16px; }
+  .principle-num { width: 32px; font-size: 18px; }
+}
