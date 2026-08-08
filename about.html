@@ -9,12 +9,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,440;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  .brand { text-decoration: none; display: flex; align-items: center; }
+  .brand img { height: 48px; width: auto; display: block; }
+  @media (max-width: 640px) {
+    .brand img { height: 38px; }
+  }
+</style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav-row">
-    <a class="brand" href="index.html">Solve with Genesis<span class="dot">.</span></a>
+    <a class="brand" href="index.html">
+      <img src="solve_with_genesis_logo_clean.png" alt="Solve with Genesis" height="48" style="height:48px;width:auto;display:block;">
+    </a>
     <nav class="links">
       <a href="index.html">Home</a>
       <a href="methodology.html">Methodology</a>
@@ -41,10 +50,10 @@
     <div class="wrap bio-grid">
       <div class="bio-facts">
         <div class="bio-fact"><div class="k">Role</div><div class="v">Founder, Solve with Genesis</div></div>
-        <div class="bio-fact"><div class="k">Background</div><div class="v">Former CISO, generation &amp; trading utility</div></div>
+        <div class="bio-fact"><div class="k">Background</div><div class="v">Former CISO, generation & trading utility</div></div>
         <div class="bio-fact"><div class="k">Budget managed</div><div class="v">$20M annually</div></div>
         <div class="bio-fact"><div class="k">Team structure</div><div class="v">8 employees, 9 consultants, 3 contractors, 6 MSPs</div></div>
-        <div class="bio-fact"><div class="k">Scope</div><div class="v">50+ generation, trading &amp; development sites</div></div>
+        <div class="bio-fact"><div class="k">Scope</div><div class="v">50+ generation, trading & development sites</div></div>
         <div class="bio-fact"><div class="k">Reporting line</div><div class="v">Monthly to CEO, weekly executive roundtable, quarterly to board</div></div>
         <div class="bio-fact"><div class="k">Frameworks</div><div class="v">NIST CSF, NERC CIP, COSO, CIS Controls</div></div>
       </div>
