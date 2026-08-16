@@ -1,0 +1,49 @@
+/* Depth pages */
+.page-hero{padding:5rem 0 3rem;border-bottom:1px solid var(--border)}
+@media(min-width:768px){.page-hero{padding:7rem 0 4rem}}
+.page-hero h1{margin:1.25rem 0 0;max-width:48rem;font-family:var(--font-serif);font-weight:300;font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.08;letter-spacing:-0.02em;text-wrap:balance}
+.page-hero .sub{margin-top:1.5rem;max-width:40rem;font-size:1.1rem;line-height:1.7;color:var(--muted-foreground);text-wrap:pretty}
+.nav a.active{color:var(--foreground)}
+.cases{display:grid;gap:0}
+.case{display:grid;gap:1.5rem;padding:3rem 0;border-bottom:1px solid var(--border)}
+@media(min-width:900px){.case{grid-template-columns:.9fr 1.4fr;gap:3rem;padding:3.5rem 0}}
+.case-tag{display:inline-block;font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.2em;color:var(--primary);margin-bottom:.75rem}
+.case h3{margin:0;font-family:var(--font-serif);font-weight:300;font-size:clamp(1.35rem,2.2vw,1.75rem);line-height:1.25;letter-spacing:-0.01em}
+.case-block{margin-bottom:1.25rem}
+.case-block .k{font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--muted-foreground);margin-bottom:.35rem}
+.case-block .v{line-height:1.65;color:oklch(.92 .004 255/.92)}
+.case-block.result .k{color:var(--primary)}
+.case-list{margin:.5rem 0 0;padding-left:1.1rem;line-height:1.6;color:var(--muted-foreground)}
+.case-question{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border);font-family:var(--font-serif);font-weight:300;font-style:italic;font-size:1.05rem;line-height:1.45;color:var(--metal)}
+.bio-grid{display:grid;gap:3rem}
+@media(min-width:900px){.bio-grid{grid-template-columns:.85fr 1.3fr;gap:4rem}}
+.bio-facts{display:grid;gap:0}
+.bio-fact{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border);font-size:.9rem}
+.bio-fact .k{font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.15em;color:var(--muted-foreground);padding-top:.15rem}
+.bio-fact .v{line-height:1.5}
+.bio-copy p{margin:0 0 1.25rem;line-height:1.75;color:oklch(.92 .004 255/.9)}
+.bio-copy p:last-child{margin-bottom:0}
+.philosophy-quote{max-width:44rem;margin:0 auto;font-family:var(--font-serif);font-weight:300;font-size:clamp(1.35rem,2.5vw,1.85rem);line-height:1.35;letter-spacing:-0.01em;text-align:center;text-wrap:balance}
+.method-steps{display:grid;gap:1px;border:1px solid var(--border);border-radius:.75rem;overflow:hidden;background:oklch(1 0 0/6%)}
+.method-step{background:var(--card);padding:2rem}
+@media(min-width:768px){.method-step{padding:2.5rem 2.75rem}}
+.method-step-inner{display:flex;gap:1.5rem;align-items:flex-start}
+.method-num{font-family:var(--font-serif);font-weight:300;font-size:1.75rem;color:var(--primary);font-variant-numeric:tabular-nums;line-height:1}
+.method-step h3{margin:0 0 .75rem;font-size:1.2rem;font-weight:500}
+.method-step p{margin:0;line-height:1.7;color:var(--muted-foreground);max-width:40rem}
+.principle-list{display:grid;gap:0;margin-top:2rem}
+.principle-item{display:grid;grid-template-columns:3rem 1fr;gap:1.25rem;padding:1.5rem 0;border-bottom:1px solid var(--border)}
+.principle-num{font-family:var(--font-serif);font-weight:300;font-size:1.35rem;color:var(--primary);font-variant-numeric:tabular-nums}
+.principle-item h3{margin:0 0 .4rem;font-size:1.05rem;font-weight:500}
+.principle-item p{margin:0;line-height:1.6;color:var(--muted-foreground);font-size:.95rem}
+.principle-item .again{color:var(--muted-foreground);font-weight:400}
+.note-box{border:1px solid var(--border);border-radius:.75rem;background:var(--card);padding:1.25rem 1.5rem;line-height:1.65;color:var(--muted-foreground);font-size:.95rem}
+.note-box strong{color:var(--foreground)}
+.text-link{color:var(--primary);font-size:.9rem}
+.text-link:hover{color:var(--foreground)}
+.subs-table{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:1.25rem}
+.subs-table th,.subs-table td{padding:.75rem 1rem;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+.subs-table th{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--muted-foreground);font-weight:500}
+.subs-table td{color:var(--muted-foreground)}
+.subs-table td:first-child{color:var(--foreground);font-weight:500}
+@media(max-width:700px){.subs-table{font-size:.8rem}.subs-table th,.subs-table td{padding:.6rem .5rem}}
