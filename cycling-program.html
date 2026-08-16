@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Health Advisory — 12-Week Cycling & Strength — Solve with Genesis</title>
+<title>Health Advisory — 12-Week Cycling &amp; Strength — Solve with Genesis</title>
 <meta name="description" content="Full 12-week stationary cycling and strength program with week-by-week workouts."/>
 <meta name="theme-color" content="#0b0d10"/>
 <link rel="canonical" href="https://www.solvewithgenesis.com/cycling-program.html"/>
@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300&family=Geist:wght@400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="styles-depth.css"/>
 <style>
 .phase-btns,.week-btns{display:flex;flex-wrap:wrap;gap:.5rem}
 .phase-btns button,.week-btns button{border:1px solid var(--border);background:0 0;color:var(--muted-foreground);border-radius:9999px;padding:.5rem 1rem;font-size:.875rem;font-weight:500;cursor:pointer}
@@ -51,14 +52,14 @@
 <header class="site-header"><div class="container header-inner">
 <a href="/"><img class="logo" src="solve_with_genesis_logo_clean.png" alt="Solve with Genesis" width="330" height="104"/></a>
 <nav class="nav" aria-label="Primary">
-<a href="/#method">Method</a><a href="/#translation">The Translation</a><a href="/#fit">Who I Work With</a><a href="/#about">About</a><a href="cycling-program.html">Health Advisory</a>
+<a href="/">Home</a><a href="methodology.html">Method</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="cycling-program.html" class="active">Health Advisory</a>
 </nav>
 <a class="header-cta" href="mailto:jonathan@solvewithgenesis.com">Email Jonathan</a>
 </div></header>
 <main>
 <section class="hero" style="padding-bottom:3rem"><div class="container">
 <p class="label">Health Advisory · Side Quest</p>
-<h1 class="text-metal">12-Week Stationary Cycling & Strength</h1>
+<h1 class="text-metal">12-Week Stationary Cycling &amp; Strength</h1>
 <p class="lead">Three phases. Twelve weeks. Full day-by-day strength and zone-based cycling — Foundation → Build → Peak.</p>
 <p style="margin-top:1rem;max-width:36rem;font-size:.95rem;line-height:1.65;color:var(--muted-foreground)">Different domain. Same belief: lasting performance comes from a system people can actually follow.</p>
 <div class="safety"><span class="safety-icon">!</span>
@@ -81,6 +82,24 @@
 <div style="overflow-x:auto"><table class="zones-table" id="zones-table"><thead><tr><th>Zone</th><th>% FTP</th><th>% HR</th><th>RPE</th><th>Feel</th></tr></thead><tbody></tbody></table></div>
 </div></section>
 
+
+<section class="section" id="substitutions">
+<div class="container">
+<p class="label">Substitutions</p>
+<h2 class="text-metal">Same stimulus, different tools</h2>
+<p style="margin-top:0.75rem;max-width:36rem;color:var(--muted-foreground);line-height:1.65">When equipment or capacity changes, swap — don't skip.</p>
+<p class="label" style="margin-top:2rem">Strength</p>
+<div style="overflow-x:auto">
+<table class="subs-table" id="subs-strength"><thead><tr><th>Original</th><th>Easier</th><th>No equipment</th><th>Harder</th></tr></thead><tbody></tbody></table>
+</div>
+<p class="label" style="margin-top:2.5rem">Cycling</p>
+<div style="overflow-x:auto">
+<table class="subs-table" id="subs-cycling"><thead><tr><th>Original</th><th>Easier</th><th>No bike</th><th>Harder</th></tr></thead><tbody></tbody></table>
+</div>
+<p style="margin-top:2rem"><a class="text-link" href="principles.html">Training principles (fat loss, muscle, longevity) →</a></p>
+</div>
+</section>
+
 <section class="section" id="equipment"><div class="container">
 <p class="label">Equipment</p>
 <h2 class="text-metal">What you need</h2>
@@ -89,14 +108,14 @@
 
 <section class="section contact"><div class="container contact-inner">
 <h2 class="text-metal">Back to the main practice</h2>
-<p>Business risk & security advisory is the primary work. This is the side quest.</p>
+<p>Business risk &amp; security advisory is the primary work. This is the side quest.</p>
 <a class="btn btn-primary" href="/">Return to Solve with Genesis</a>
 </div></section>
 </main>
 <footer class="site-footer"><div class="container">
 <div class="footer-grid">
-<div class="footer-brand"><img src="solve_with_genesis_logo_clean.png" alt="Solve with Genesis" width="220" height="70" style="height:2.75rem;width:auto"/><p>Business risk & security advisory.</p></div>
-<nav class="footer-nav"><a href="/#method">Method</a><a href="/#translation">The Translation</a><a href="/#fit">Who I Work With</a><a href="cycling-program.html">Health Advisory</a></nav>
+<div class="footer-brand"><img src="solve_with_genesis_logo_clean.png" alt="Solve with Genesis" width="220" height="70" style="height:2.75rem;width:auto"/><p>Business risk &amp; security advisory.</p></div>
+<nav class="footer-nav"><a href="/">Home</a><a href="methodology.html">Method</a><a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="cycling-program.html">Health Advisory</a></nav>
 <div class="footer-contact"><a href="mailto:jonathan@solvewithgenesis.com">jonathan@solvewithgenesis.com</a></div>
 </div>
 <p class="footer-copy">© 2026 Solve with Genesis</p>
@@ -123,5 +142,8 @@ function render(){
 document.querySelector('#zones-table tbody').innerHTML=ZONES.map(z=>`<tr><td>${z.zone}</td><td>${z.ftp}</td><td>${z.hr}</td><td>${z.rpe}</td><td>${z.feel}</td></tr>`).join('');
 document.getElementById('equip-grid').innerHTML=EQUIPMENT.map(e=>`<div class="equip-card"><h4>${e.name}</h4><p>${e.desc}</p></div>`).join('');
 render();
+
+document.querySelector('#subs-strength tbody').innerHTML=SUBS_STRENGTH.map(r=>`<tr><td>${r.original}</td><td>${r.easier}</td><td>${r.free}</td><td>${r.harder}</td></tr>`).join('');
+document.querySelector('#subs-cycling tbody').innerHTML=SUBS_CYCLING.map(r=>`<tr><td>${r.original}</td><td>${r.easier}</td><td>${r.free}</td><td>${r.harder}</td></tr>`).join('');
 </script>
 </body></html>
