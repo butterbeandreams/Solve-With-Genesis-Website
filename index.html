@@ -36,10 +36,9 @@
         <img class="logo" src="solve_with_genesis_logo_clean.png" alt="Solve with Genesis" width="330" height="104" />
       </a>
       <nav class="nav" aria-label="Primary">
-        <a href="#method">Method</a>
-        <a href="#translation">The Translation</a>
-        <a href="#fit">Who I Work With</a>
-        <a href="#about">About</a>
+        <a href="methodology.html">Method</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="about.html">About</a>
         <a href="cycling-program.html">Health Advisory</a>
       </nav>
       <a class="header-cta" href="mailto:jonathan@solvewithgenesis.com">Email Jonathan</a>
@@ -47,6 +46,7 @@
   </header>
 
   <main>
+    <!-- Hero -->
     <section id="top" class="hero">
       <div class="container">
         <p class="label rise" style="animation-delay:0ms">Business Risk &amp; Security Advisory</p>
@@ -93,6 +93,7 @@
       </div>
     </section>
 
+    <!-- Translation -->
     <section id="translation" class="section">
       <div class="container translator-grid">
         <div>
@@ -120,6 +121,7 @@
       </div>
     </section>
 
+    <!-- Method -->
     <section id="method" class="section">
       <div class="container">
         <div style="max-width:36rem">
@@ -164,9 +166,11 @@
             </div>
           </li>
         </ol>
+        <a href="methodology.html" class="text-link" style="display:inline-block;margin-top:2rem">Read the full methodology →</a>
       </div>
     </section>
 
+    <!-- Fit -->
     <section id="fit" class="section">
       <div class="container">
         <div style="max-width:36rem">
@@ -194,6 +198,17 @@
       </div>
     </section>
 
+    <!-- Case studies teaser -->
+    <section class="section" id="cases-teaser">
+      <div class="container">
+        <p class="label">Proof</p>
+        <h2 class="text-metal">Seven engagements. One environment.</h2>
+        <p style="margin-top:1rem;max-width:36rem;line-height:1.7;color:var(--muted-foreground)">Vendor strategy, governance, executive communication, cost discipline, culture, and quantitative risk — each with a different fight to win.</p>
+        <a href="case-studies.html" class="btn btn-outline" style="margin-top:1.75rem">Read the case studies</a>
+      </div>
+    </section>
+
+    <!-- About -->
     <section id="about" class="section">
       <div class="container">
         <p class="about-quote text-metal">
@@ -203,6 +218,7 @@
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact" class="section contact">
       <div class="container contact-inner">
         <h2 class="text-metal">Organizations don't need more security. They need better decisions.</h2>
@@ -223,10 +239,9 @@
           <p>Business risk &amp; security advisory. Better decisions, right-sized programs.</p>
         </div>
         <nav class="footer-nav" aria-label="Footer">
-          <a href="#method">Method</a>
-          <a href="#translation">The Translation</a>
-          <a href="#fit">Who I Work With</a>
-          <a href="#about">About</a>
+          <a href="methodology.html">Method</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="about.html">About</a>
           <a href="cycling-program.html">Health Advisory</a>
         </nav>
         <div class="footer-contact">
@@ -242,12 +257,12 @@
     (function () {
       var eng = {
         tag: 'Engineering says',
-        body: '\u201cPatch cadence on the SCADA historian is 45 days behind policy. Three HMI nodes carry unremediated high-severity CVEs, with no compensating network segmentation.\u201d',
+        body: '“Patch cadence on the SCADA historian is 45 days behind policy. Three HMI nodes carry unremediated high-severity CVEs, with no compensating network segmentation.”',
         meta: 'Technical finding · site security review'
       };
       var board = {
         tag: 'Boardroom hears',
-        body: '\u201cThis gap carries roughly a 1-in-8 chance of a generation outage this year, at an estimated $4M in lost output. Closing it costs $180K and six weeks.\u201d',
+        body: '“This gap carries roughly a 1-in-8 chance of a generation outage this year, at an estimated $4M in lost output. Closing it costs $180K and six weeks.”',
         meta: 'Business decision · same finding, translated'
       };
       var btnEng = document.getElementById('btn-eng');
