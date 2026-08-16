@@ -47,3 +47,29 @@
 .subs-table td{color:var(--muted-foreground)}
 .subs-table td:first-child{color:var(--foreground);font-weight:500}
 @media(max-width:700px){.subs-table{font-size:.8rem}.subs-table th,.subs-table td{padding:.6rem .5rem}}
+/* Compat for legacy case-studies markup */
+.wrap{width:100%;max-width:72rem;margin:0 auto;padding:0 1.25rem}
+@media(min-width:768px){.wrap{padding:0 2rem}}
+.page-header{padding:5rem 0 3rem;border-bottom:1px solid var(--border)}
+@media(min-width:768px){.page-header{padding:7rem 0 4rem}}
+.page-header .eyebrow{font-size:.75rem;font-weight:500;text-transform:uppercase;letter-spacing:.28em;color:var(--primary)}
+.page-header h1{margin:1.25rem 0 0;font-family:var(--font-serif);font-weight:300;font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.08;letter-spacing:-.02em}
+.page-header .sub{margin-top:1.5rem;max-width:40rem;font-size:1.1rem;line-height:1.7;color:var(--muted-foreground)}
+.case-detail{display:block}
+.cta-band{border-top:1px solid var(--border);padding:4rem 0;text-align:center}
+.cta-band h2{font-family:var(--font-serif);font-weight:300;font-size:clamp(1.5rem,3vw,2.25rem)}
+.cta-band .sub{color:var(--muted-foreground);margin-top:.75rem}
+.btn-light{display:inline-flex;align-items:center;justify-content:center;border-radius:9999px;padding:.75rem 1.5rem;font-size:.875rem;font-weight:500;background:var(--primary);color:var(--primary-foreground);margin-top:1.5rem}
+header .wrap.nav-row,header .nav-row{display:flex;height:4rem;align-items:center;justify-content:space-between}
+header{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--border);background:oklch(.16 .006 255/.7);backdrop-filter:blur(20px)}
+header .brand-mark-full,header .brand img{height:2.75rem;width:auto;mix-blend-mode:screen}
+header .links{display:none;gap:2rem}
+@media(min-width:768px){header .links{display:flex}}
+header .links a{font-size:.875rem;color:var(--muted-foreground)}
+header .links a.active,header .links a:hover{color:var(--foreground)}
+footer{border-top:1px solid var(--border);padding:3rem 0;font-size:.875rem;color:var(--muted-foreground)}
+footer a{color:var(--muted-foreground)}
+footer a:hover{color:var(--foreground)}
+.foot-top{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;margin-bottom:2rem}
+.foot-links{display:flex;flex-wrap:wrap;gap:1rem 1.5rem}
+body{margin:0;background:var(--background);color:var(--foreground);font-family:var(--font-sans)}
