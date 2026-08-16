@@ -1,1 +1,127 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Health Advisory — 12-Week Cycling & Strength — Solve with Genesis</title>
+<meta name="description" content="Full 12-week stationary cycling and strength program with week-by-week workouts."/>
+<meta name="theme-color" content="#0b0d10"/>
+<link rel="canonical" href="https://www.solvewithgenesis.com/cycling-program.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300&family=Geist:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+<style>
+.phase-btns,.week-btns{display:flex;flex-wrap:wrap;gap:.5rem}
+.phase-btns button,.week-btns button{border:1px solid var(--border);background:0 0;color:var(--muted-foreground);border-radius:9999px;padding:.5rem 1rem;font-size:.875rem;font-weight:500;cursor:pointer}
+.phase-btns button[aria-pressed=true]{background:var(--primary);color:var(--primary-foreground);border-color:transparent}
+.week-btns button{border-radius:.375rem;padding:.35rem .85rem}
+.week-btns button[aria-pressed=true]{background:var(--secondary);color:var(--foreground);box-shadow:0 0 0 1px oklch(.62 .15 250/.5)}
+.week-panel{margin-top:2rem;overflow:hidden;border-radius:1rem;border:1px solid var(--border);background:var(--card)}
+.week-panel-head{border-bottom:1px solid var(--border);padding:1.5rem 2rem}
+.week-panel-head h3{margin:0;font-family:var(--font-serif);font-weight:300;font-size:1.5rem}
+.week-panel-head p{margin:.35rem 0 0;font-size:.875rem;color:var(--muted-foreground)}
+.week-table{width:100%;border-collapse:collapse;text-align:left;font-size:.875rem}
+.week-table th{padding:1rem 1.5rem;font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--muted-foreground);border-bottom:1px solid var(--border)}
+.week-table td{padding:1rem 1.5rem;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.55}
+.week-table tr:last-child td{border-bottom:none}
+.week-table .day{font-weight:500;color:var(--primary);width:4rem}
+.week-table .focus{width:14rem}
+.week-table .workout{color:var(--muted-foreground)}
+.mobile-days{display:none}
+.mobile-days .day-row{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border)}
+.mobile-days .day-top{display:flex;justify-content:space-between;gap:1rem}
+.mobile-days .day-name{font-weight:500;color:var(--primary)}
+.mobile-days .day-workout{margin:.5rem 0 0;font-size:.875rem;line-height:1.55;color:var(--muted-foreground)}
+@media(max-width:767px){.week-table-wrap{display:none}.mobile-days{display:block}}
+.zones-table{width:100%;border-collapse:collapse;font-size:.875rem;margin-top:1.5rem}
+.zones-table th,.zones-table td{padding:.85rem 1rem;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+.zones-table th{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:var(--muted-foreground);font-weight:500}
+.zones-table td{color:var(--muted-foreground)}.zones-table td:first-child{color:var(--foreground);font-weight:500}
+.equip-grid{display:grid;gap:1rem;margin-top:1.5rem}
+@media(min-width:768px){.equip-grid{grid-template-columns:repeat(2,1fr)}}
+.equip-card{border:1px solid var(--border);border-radius:.75rem;background:var(--card);padding:1.25rem}
+.equip-card h4{margin:0;font-size:.95rem}.equip-card p{margin:.5rem 0 0;font-size:.875rem;line-height:1.55;color:var(--muted-foreground)}
+.phase-intro{margin-top:1.5rem;padding:1.5rem;border-radius:.75rem;border:1px solid var(--border);background:var(--card)}
+.phase-intro p{margin:0;line-height:1.65;color:var(--muted-foreground)}
+.phase-intro ul{margin:1rem 0 0;padding-left:1.1rem;color:var(--muted-foreground);line-height:1.6}
+</style>
+</head>
+<body class="grain">
+<header class="site-header"><div class="container header-inner">
+<a href="/"><img class="logo" src="solve_with_genesis_logo_clean.png" alt="Solve with Genesis" width="330" height="104"/></a>
+<nav class="nav" aria-label="Primary">
+<a href="/#method">Method</a><a href="/#translation">The Translation</a><a href="/#fit">Who I Work With</a><a href="/#about">About</a><a href="cycling-program.html">Health Advisory</a>
+</nav>
+<a class="header-cta" href="mailto:jonathan@solvewithgenesis.com">Email Jonathan</a>
+</div></header>
+<main>
+<section class="hero" style="padding-bottom:3rem"><div class="container">
+<p class="label">Health Advisory · Side Quest</p>
+<h1 class="text-metal">12-Week Stationary Cycling & Strength</h1>
+<p class="lead">Three phases. Twelve weeks. Full day-by-day strength and zone-based cycling — Foundation → Build → Peak.</p>
+<p style="margin-top:1rem;max-width:36rem;font-size:.95rem;line-height:1.65;color:var(--muted-foreground)">Different domain. Same belief: lasting performance comes from a system people can actually follow.</p>
+<div class="safety"><span class="safety-icon">!</span>
+<p style="margin:0;font-size:.875rem;line-height:1.6"><strong>Safety Note:</strong> General fitness program, not medical advice. Consult a physician before starting if injured, pregnant, managing a condition, or new to structured training.</p>
+</div></div></section>
+
+<section class="section" id="plan" style="padding-top:3rem"><div class="container">
+<p class="label">Interactive plan</p>
+<h2 class="text-metal">Pick a phase, then a week</h2>
+<p style="margin-top:.75rem;max-width:36rem;color:var(--muted-foreground);line-height:1.65">Full prescribed sessions for every day.</p>
+<div class="phase-btns" id="phase-btns" style="margin-top:1.75rem" role="group"></div>
+<div class="phase-intro" id="phase-intro"></div>
+<div class="week-btns" id="week-btns" style="margin-top:1.25rem" role="group"></div>
+<div class="week-panel" id="week-panel"></div>
+</div></section>
+
+<section class="section" id="zones"><div class="container">
+<p class="label">Intensity zones</p>
+<h2 class="text-metal">How hard is hard enough</h2>
+<div style="overflow-x:auto"><table class="zones-table" id="zones-table"><thead><tr><th>Zone</th><th>% FTP</th><th>% HR</th><th>RPE</th><th>Feel</th></tr></thead><tbody></tbody></table></div>
+</div></section>
+
+<section class="section" id="equipment"><div class="container">
+<p class="label">Equipment</p>
+<h2 class="text-metal">What you need</h2>
+<div class="equip-grid" id="equip-grid"></div>
+</div></section>
+
+<section class="section contact"><div class="container contact-inner">
+<h2 class="text-metal">Back to the main practice</h2>
+<p>Business risk & security advisory is the primary work. This is the side quest.</p>
+<a class="btn btn-primary" href="/">Return to Solve with Genesis</a>
+</div></section>
+</main>
+<footer class="site-footer"><div class="container">
+<div class="footer-grid">
+<div class="footer-brand"><img src="solve_with_genesis_logo_clean.png" alt="Solve with Genesis" width="220" height="70" style="height:2.75rem;width:auto"/><p>Business risk & security advisory.</p></div>
+<nav class="footer-nav"><a href="/#method">Method</a><a href="/#translation">The Translation</a><a href="/#fit">Who I Work With</a><a href="cycling-program.html">Health Advisory</a></nav>
+<div class="footer-contact"><a href="mailto:jonathan@solvewithgenesis.com">jonathan@solvewithgenesis.com</a></div>
+</div>
+<p class="footer-copy">© 2026 Solve with Genesis</p>
+</div></footer>
+<script src="cycling-data.js"></script>
+<script>
+let phaseIdx=0,weekIdx=0;
+function render(){
+  const phase=PHASES[phaseIdx],week=phase.plan[weekIdx];
+  const pb=document.getElementById('phase-btns');
+  pb.innerHTML=PHASES.map((p,i)=>`<button type="button" aria-pressed="${i===phaseIdx}" data-i="${i}">${p.name}</button>`).join('');
+  pb.querySelectorAll('button').forEach(b=>b.onclick=()=>{phaseIdx=+b.dataset.i;weekIdx=0;render();});
+  document.getElementById('phase-intro').innerHTML=`<p><strong style="color:var(--foreground)">${phase.weeks}</strong> · ${phase.meta}</p><p style="margin-top:.75rem">${phase.blurb}</p><ul>${phase.bullets.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+  const wb=document.getElementById('week-btns');
+  wb.innerHTML=phase.plan.map((w,i)=>`<button type="button" aria-pressed="${i===weekIdx}" data-i="${i}">${w.label}</button>`).join('');
+  wb.querySelectorAll('button').forEach(b=>b.onclick=()=>{weekIdx=+b.dataset.i;render();});
+  const short=phase.name.includes('—')?phase.name.split('—')[1].trim():phase.name;
+  document.getElementById('week-panel').innerHTML=`<div class="week-panel-head"><h3 class="text-metal">${week.label} <span style="color:var(--muted-foreground)">· ${short}</span></h3><p>${week.descriptor}</p></div>
+  <div class="week-table-wrap"><table class="week-table"><thead><tr><th>Day</th><th>Focus</th><th>Prescribed workout</th></tr></thead><tbody>
+  ${week.days.map(d=>`<tr><td class="day">${d.day}</td><td class="focus">${d.focus}</td><td class="workout">${d.workout}</td></tr>`).join('')}
+  </tbody></table></div>
+  <div class="mobile-days">${week.days.map(d=>`<div class="day-row"><div class="day-top"><span class="day-name">${d.day}</span><span>${d.focus}</span></div><p class="day-workout">${d.workout}</p></div>`).join('')}</div>`;
+}
+document.querySelector('#zones-table tbody').innerHTML=ZONES.map(z=>`<tr><td>${z.zone}</td><td>${z.ftp}</td><td>${z.hr}</td><td>${z.rpe}</td><td>${z.feel}</td></tr>`).join('');
+document.getElementById('equip-grid').innerHTML=EQUIPMENT.map(e=>`<div class="equip-card"><h4>${e.name}</h4><p>${e.desc}</p></div>`).join('');
+render();
+</script>
+</body></html>
