@@ -236,7 +236,142 @@
   .subs-table th, .subs-table td { padding: 0.6rem 0.5rem; }
 }
 
-/* Compat for any legacy */
-.wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
-.page-header { padding: 4rem 0 2rem; }
-.case-detail { padding: 2rem 0; border-bottom: 1px solid var(--border); }
+/* ——— Compat for older case-studies / about markup still in cache ——— */
+.wrap {
+  width: 100%;
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+@media (min-width: 768px) {
+  .wrap { padding-left: 2rem; padding-right: 2rem; }
+}
+.page-header {
+  padding: 5rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+}
+@media (min-width: 768px) {
+  .page-header { padding: 7rem 0 4rem; }
+}
+.page-header .eyebrow,
+.page-header .label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--primary);
+}
+.page-header h1 {
+  margin: 1.25rem 0 0;
+  max-width: 48rem;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+.page-header .sub {
+  margin-top: 1.5rem;
+  max-width: 40rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+header .nav-row {
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+header .brand img,
+header .brand-mark-full {
+  height: 2.75rem;
+  width: auto;
+  display: block;
+}
+header .links {
+  display: none;
+  align-items: center;
+  gap: 1.5rem;
+}
+header .links a {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+header .links a:hover,
+header .links a.active {
+  color: var(--foreground);
+}
+@media (min-width: 900px) {
+  header .links { display: flex; }
+}
+header .btn,
+header .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: oklch(0.62 0.15 250 / 0.1);
+  border: 1px solid oklch(0.62 0.15 250 / 0.4);
+  color: var(--foreground);
+}
+.cta-band {
+  border-top: 1px solid var(--border);
+  padding: 4rem 0;
+  text-align: center;
+}
+.cta-band h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+}
+.cta-band .sub {
+  margin-top: 0.75rem;
+  color: var(--muted-foreground);
+}
+.btn-light {
+  display: inline-flex;
+  margin-top: 1.5rem;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+footer .foot-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+footer .foot-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+footer .foot-links a {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+footer .foot-links a:hover { color: var(--foreground); }
+footer .foot-row {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+}
+/* Ensure case content text is visible even with partial styles */
+.case-detail,
+.case-block .v,
+.case-question {
+  color: oklch(0.92 0.004 255 / 0.92);
+}
