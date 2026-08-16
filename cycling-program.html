@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Health Advisory — 12-Week Cycling & Strength Program | Solve with Genesis</title>
 <meta name="description" content="A 12-week progressive stationary cycling and strength training program. Three phases: Foundation, Build, and Peak. Track every session.">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" href="s-logo.png">
-<link rel="apple-touch-icon" href="s-logo.png">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="favicon-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="favicon-64.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,440;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -292,6 +292,59 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 var PHASE_COLORS = ['var(--navy)', 'var(--gold)', 'var(--navy-deep)'];
+
+// Maps exercise names appearing in the weekly workout cells to their form-cue guide.
+// Ordered longest/most-specific phrase first so multi-word lifts are matched before
+// their generic substrings (e.g. "Weighted Pull-up" before "Pull-up").
+var EXERCISE_LINKS = [
+  ["Weighted Pull-up or Band Assist", "phase-2-exercises.html#pull-up-band-assisted-or-weighted"],
+  ["Pull-up or Band Assist", "phase-2-exercises.html#pull-up-band-assisted-or-weighted"],
+  ["Weighted Pull-up", "phase-2-exercises.html#pull-up-band-assisted-or-weighted"],
+  ["Bulgarian Split Squat", "phase-2-exercises.html#bulgarian-split-squat"],
+  ["Romanian Deadlift", "phase-1-exercises.html#romanian-deadlift-rdl"],
+  ["Hanging Knee Raise", "phase-2-exercises.html#core-russian-twist-hanging-knee-raise-side-plank-cable-wood-chop"],
+  ["Hanging Leg Raise", "phase-3-exercises.html#hanging-leg-raise"],
+  ["Cable Wood Chop", "phase-2-exercises.html#core-russian-twist-hanging-knee-raise-side-plank-cable-wood-chop"],
+  ["Russian Twist", "phase-2-exercises.html#core-russian-twist-hanging-knee-raise-side-plank-cable-wood-chop"],
+  ["Ab Wheel Rollout", "phase-3-exercises.html#ab-wheel-rollout"],
+  ["Toes-to-Bar", "phase-3-exercises.html#toes-to-bar"],
+  ["Walking Lunges", "phase-1-exercises.html#walking-lunges"],
+  ["Goblet Squat", "phase-1-exercises.html#goblet-squat"],
+  ["Back Squat", "phase-2-exercises.html#back-squat"],
+  ["Front Squat", "phase-2-exercises.html#front-squat"],
+  ["Pendlay Row", "phase-2-exercises.html#pendlay-row"],
+  ["Hip Thrust", "phase-2-exercises.html#hip-thrust"],
+  ["Side Plank", "phase-2-exercises.html#core-russian-twist-hanging-knee-raise-side-plank-cable-wood-chop"],
+  ["Bird Dog", "phase-1-exercises.html#core-plank-glute-bridge-bird-dog-dead-bug-superman"],
+  ["Glute Bridge", "phase-1-exercises.html#core-plank-glute-bridge-bird-dog-dead-bug-superman"],
+  ["Dead Bug", "phase-1-exercises.html#core-plank-glute-bridge-bird-dog-dead-bug-superman"],
+  ["Superman", "phase-1-exercises.html#core-plank-glute-bridge-bird-dog-dead-bug-superman"],
+  ["Lat Pulldown", "phase-1-exercises.html#lat-pulldown"],
+  ["DB Push Press", "phase-1-exercises.html#dumbbell-push-press"],
+  ["Push Press", "phase-1-exercises.html#dumbbell-push-press"],
+  ["DB Row", "phase-1-exercises.html#dumbbell-row-bent-over-row"],
+  ["Bent-Over Row", "phase-1-exercises.html#dumbbell-row-bent-over-row"],
+  ["Barbell Row", "phase-1-exercises.html#dumbbell-row-bent-over-row"],
+  ["Pull-up", "phase-2-exercises.html#pull-up-band-assisted-or-weighted"],
+  ["Split Squat", "phase-2-exercises.html#bulgarian-split-squat"],
+  ["Plank", "phase-1-exercises.html#core-plank-glute-bridge-bird-dog-dead-bug-superman"],
+  ["RDL", "phase-1-exercises.html#romanian-deadlift-rdl"],
+  ["Lunges", "phase-1-exercises.html#walking-lunges"]
+];
+var EXERCISE_LINK_RE = new RegExp(EXERCISE_LINKS.map(function(pair){
+  return pair[0].replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}).join('|'), 'g');
+function linkifyWorkout(text){
+  return text.replace(EXERCISE_LINK_RE, function(match){
+    for (var i = 0; i < EXERCISE_LINKS.length; i++){
+      if (EXERCISE_LINKS[i][0] === match){
+        return '<a class="workout-link" href="' + EXERCISE_LINKS[i][1] + '">' + match + '</a>';
+      }
+    }
+    return match;
+  });
+}
+
 var PHASES = [
   {name:"Phase 1 — Foundation",short:"Foundation",color:"var(--navy)",subtitle:"Low intensity · Habit-building · Movement quality",weeks:[
     [{day:"Mon",focus:"Strength — Legs & Core",workout:"Goblet Squat 3×8 · Romanian Deadlift 3×8 · Walking Lunges 2×10/leg · Plank 3×30s"},
@@ -392,7 +445,7 @@ var currentPhase=0,currentWeek=0,currentSub='strength';
 
 function getGlobalWeek(p,w){var g=0;for(var i=0;i<p;i++)g+=PHASES[i].weeks.length;return g+w+1}
 function renderWeekPills(){var p=PHASES[currentPhase],c=document.getElementById('weekPills');c.innerHTML='';p.weeks.forEach(function(wk,i){var pill=document.createElement('button');pill.className='week-pill'+(i===currentWeek?' active':'');pill.textContent='Week '+getGlobalWeek(currentPhase,i);pill.onclick=function(){currentWeek=i;renderWeek();renderWeekPills()};c.appendChild(pill)})}
-function renderWeek(){var p=PHASES[currentPhase],wk=p.weeks[currentWeek],gw=getGlobalWeek(currentPhase,currentWeek),isDeload=wk[0].focus.indexOf('Deload')>-1,isTaper=wk.some(function(d){return d.focus.indexOf('Taper')>-1}),tag=isDeload?' · Deload Week':(isTaper?' · Taper & Test':'');var h='<div class="week-display week-table-wrap"><table class="week-table"><thead><tr><th>Day</th><th>Focus</th><th>Prescribed Workout</th></tr></thead><tbody>';wk.forEach(function(d){var rc=d.rest?' class="rest-row"':'';h+='<tr'+rc+'><td class="day-cell">'+d.day+'</td><td class="focus-cell">'+d.focus+'</td><td class="workout-cell">'+d.workout+'</td></tr>'});h+='</tbody></table></div>';document.getElementById('weekDisplay').innerHTML='<div class="week-header"><h3>Week '+gw+'</h3><span class="week-tag" style="background:'+p.color+'">'+p.short+'</span><span class="week-subtitle">'+p.subtitle+tag+'</span></div>'+h}
+function renderWeek(){var p=PHASES[currentPhase],wk=p.weeks[currentWeek],gw=getGlobalWeek(currentPhase,currentWeek),isDeload=wk[0].focus.indexOf('Deload')>-1,isTaper=wk.some(function(d){return d.focus.indexOf('Taper')>-1}),tag=isDeload?' · Deload Week':(isTaper?' · Taper & Test':'');var h='<div class="week-display week-table-wrap"><table class="week-table"><thead><tr><th>Day</th><th>Focus</th><th>Prescribed Workout</th></tr></thead><tbody>';wk.forEach(function(d){var rc=d.rest?' class="rest-row"':'';h+='<tr'+rc+'><td class="day-cell">'+d.day+'</td><td class="focus-cell">'+d.focus+'</td><td class="workout-cell">'+linkifyWorkout(d.workout)+'</td></tr>'});h+='</tbody></table></div>';document.getElementById('weekDisplay').innerHTML='<div class="week-header"><h3>Week '+gw+'</h3><span class="week-tag" style="background:'+p.color+'">'+p.short+'</span><span class="week-subtitle">'+p.subtitle+tag+'</span></div>'+h}
 function renderSubs(){var data=currentSub==='strength'?STRENGTH_SUBS:CYCLING_SUBS;var headers=currentSub==='strength'?['Original Exercise','Easier / Beginner','Equipment-Free','Harder / Advanced']:['Workout Type','Short on Time','Lower Intensity','Higher Intensity'];var h='<div class="sub-table-wrap"><table class="sub-table"><thead><tr>';headers.forEach(function(t){h+='<th>'+t+'</th>'});h+='</tr></thead><tbody>';data.forEach(function(row){h+='<tr>';row.forEach(function(cell){h+='<td>'+cell+'</td>'});h+='</tr>'});h+='</tbody></table></div>';document.getElementById('subContent').innerHTML=h}
 
 document.querySelectorAll('.phase-tab').forEach(function(tab){tab.addEventListener('click',function(){document.querySelectorAll('.phase-tab').forEach(function(t){t.classList.remove('active');t.style.background=''});tab.classList.add('active');var idx=parseInt(tab.dataset.phase);tab.style.background=PHASE_COLORS[idx];currentPhase=idx;currentWeek=0;renderWeekPills();renderWeek()})});

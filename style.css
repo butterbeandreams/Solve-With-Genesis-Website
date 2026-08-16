@@ -318,6 +318,8 @@ section.tight { padding: 64px 0; }
 .week-table td.workout-cell { color: var(--text); }
 .week-table tr.rest-row td { opacity: 0.65; }
 .week-table tr.rest-row td.focus-cell { font-style: italic; }
+.workout-link { color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--line); transition: border-color 0.15s ease, color 0.15s ease; }
+.workout-link:hover { color: var(--gold); border-color: var(--gold); }
 
 /* Substitution tabs */
 .sub-tabs { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
