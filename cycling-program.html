@@ -14,7 +14,14 @@
 <link rel="stylesheet" href="styles-depth.css"/>
 <style>
 .phase-btns,.week-btns{display:flex;flex-wrap:wrap;gap:.5rem}
-.phase-btns button,.week-btns button{border:1px solid var(--border);background:0 0;color:var(--muted-foreground);border-radius:9999px;padding:.5rem 1rem;font-size:.875rem;font-weight:500;cursor:pointer}
+.phase-btns button,.week-btns button{
+  border:1px solid var(--border);background:transparent;color:var(--muted-foreground);
+  border-radius:9999px;padding:.5rem 1rem;font-size:.875rem;font-weight:500;cursor:pointer;
+  transition:background .15s ease,color .15s ease,border-color .15s ease,transform .12s ease,box-shadow .15s ease;
+}
+.phase-btns button:hover:not([aria-pressed=true]),.week-btns button:hover:not([aria-pressed=true]){color:var(--foreground);border-color:oklch(1 0 0 / 16%)}
+.phase-btns button:active,.week-btns button:active{transform:scale(0.97)}
+.phase-btns button:focus-visible,.week-btns button:focus-visible{outline:2px solid oklch(0.62 0.15 250 / 0.7);outline-offset:2px}
 .phase-btns button[aria-pressed=true]{background:var(--primary);color:var(--primary-foreground);border-color:transparent}
 .week-btns button{border-radius:.375rem;padding:.35rem .85rem}
 .week-btns button[aria-pressed=true]{background:var(--secondary);color:var(--foreground);box-shadow:0 0 0 1px oklch(.62 .15 250/.5)}
