@@ -72,6 +72,7 @@
   color: oklch(0.92 0.004 255 / 0.92);
 }
 .case-block.result .k { color: var(--primary); }
+.case-list { margin: 0.5rem 0 0; padding-left: 1.1rem; line-height: 1.6; color: var(--muted-foreground); }
 .case-question {
   margin-top: 1.25rem;
   padding-top: 1.25rem;
@@ -85,130 +86,97 @@
 }
 
 /* About bio */
-.bio-grid {
-  display: grid;
-  gap: 3rem;
-}
+.bio-grid { display: grid; gap: 3rem; }
 @media (min-width: 900px) {
   .bio-grid { grid-template-columns: 0.85fr 1.3fr; gap: 4rem; }
 }
 .bio-facts { display: grid; gap: 0; }
 .bio-fact {
-  padding: 1.25rem 0;
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
   border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
 }
-.bio-fact:last-child { border-bottom: none; }
 .bio-fact .k {
   font-size: 0.7rem;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.15em;
   color: var(--muted-foreground);
-  margin-bottom: 0.35rem;
+  padding-top: 0.15rem;
 }
-.bio-fact .v {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--foreground);
-}
-.bio-body p {
+.bio-fact .v { line-height: 1.5; }
+.bio-copy p {
   margin: 0 0 1.25rem;
   line-height: 1.75;
-  color: var(--muted-foreground);
+  color: oklch(0.92 0.004 255 / 0.9);
 }
+.bio-copy p:last-child { margin-bottom: 0; }
 .philosophy-quote {
-  max-width: 36rem;
+  max-width: 44rem;
   margin: 0 auto;
   font-family: var(--font-serif);
   font-weight: 300;
   font-size: clamp(1.35rem, 2.5vw, 1.85rem);
-  line-height: 1.4;
+  line-height: 1.35;
   letter-spacing: -0.01em;
   text-align: center;
+  text-wrap: balance;
 }
 
-/* Methodology steps */
-.method-steps { display: grid; gap: 0; }
-.method-step {
-  padding: 2.5rem 0;
-  border-bottom: 1px solid var(--border);
+/* Methodology expanded */
+.method-steps { display: grid; gap: 1px; border: 1px solid var(--border); border-radius: 0.75rem; overflow: hidden; background: oklch(1 0 0 / 6%); }
+.method-step { background: var(--card); padding: 2rem; }
+@media (min-width: 768px) {
+  .method-step { padding: 2.5rem 2.75rem; }
 }
-.method-step:last-child { border-bottom: none; }
-.method-step-inner {
-  display: grid;
-  gap: 1.25rem;
-}
-@media (min-width: 700px) {
-  .method-step-inner {
-    grid-template-columns: 4.5rem 1fr;
-    gap: 2rem;
-    align-items: start;
-  }
-}
+.method-step-inner { display: flex; gap: 1.5rem; align-items: flex-start; }
 .method-num {
   font-family: var(--font-serif);
   font-weight: 300;
   font-size: 1.75rem;
   color: var(--primary);
-  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
 }
-.method-step h3 {
-  margin: 0 0 0.75rem;
-  font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: 1.35rem;
-  letter-spacing: -0.01em;
-}
-.method-step p {
-  margin: 0;
-  line-height: 1.7;
-  color: var(--muted-foreground);
-}
+.method-step h3 { margin: 0 0 0.75rem; font-size: 1.2rem; font-weight: 500; }
+.method-step p { margin: 0; line-height: 1.7; color: var(--muted-foreground); max-width: 40rem; }
 
-/* Principles */
-.principle-list { display: grid; gap: 0; }
+/* Principles (health) */
+.principle-list { display: grid; gap: 0; margin-top: 2rem; }
 .principle-item {
   display: grid;
-  gap: 1rem;
-  padding: 1.75rem 0;
+  grid-template-columns: 3rem 1fr;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
   border-bottom: 1px solid var(--border);
-}
-@media (min-width: 700px) {
-  .principle-item {
-    grid-template-columns: 3.5rem 1fr;
-    gap: 1.5rem;
-    align-items: start;
-  }
 }
 .principle-num {
   font-family: var(--font-serif);
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   color: var(--primary);
+  font-variant-numeric: tabular-nums;
 }
-.principle-item h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-.principle-item p {
-  margin: 0;
-  line-height: 1.65;
-  color: var(--muted-foreground);
-}
-
+.principle-item h3 { margin: 0 0 0.4rem; font-size: 1.05rem; font-weight: 500; }
+.principle-item p { margin: 0; line-height: 1.6; color: var(--muted-foreground); font-size: 0.95rem; }
+.principle-item .again { color: var(--muted-foreground); font-weight: 400; }
 .note-box {
-  padding: 1.25rem 1.5rem;
-  border-radius: 0.75rem;
   border: 1px solid var(--border);
+  border-radius: 0.75rem;
   background: var(--card);
+  padding: 1.25rem 1.5rem;
   line-height: 1.65;
   color: var(--muted-foreground);
   font-size: 0.95rem;
 }
 .note-box strong { color: var(--foreground); }
+.text-link { color: var(--primary); font-size: 0.9rem; }
+.text-link:hover { color: var(--foreground); }
 
-/* Substitutions tables */
+/* Subs table on cycling */
 .subs-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 1.25rem; }
 .subs-table th, .subs-table td {
   padding: 0.75rem 1rem;
@@ -225,8 +193,12 @@
 }
 .subs-table td { color: var(--muted-foreground); }
 .subs-table td:first-child { color: var(--foreground); font-weight: 500; }
+@media (max-width: 700px) {
+  .subs-table { font-size: 0.8rem; }
+  .subs-table th, .subs-table td { padding: 0.6rem 0.5rem; }
+}
 
-/* Exercise form guides */
+/* Exercise how-to pages */
 .exercise-block {
   display: grid;
   gap: 1.5rem;
@@ -326,44 +298,29 @@
   font-size: 0.875rem;
   color: var(--muted-foreground);
   text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease, transform 0.12s ease;
 }
 .phase-exercise-links a:hover {
   color: var(--foreground);
   border-color: oklch(0.62 0.15 250 / 0.5);
+  background: oklch(0.62 0.15 250 / 0.06);
+}
+.phase-exercise-links a:active {
+  transform: scale(0.97);
+}
+.phase-exercise-links a:focus-visible {
+  outline: 2px solid oklch(0.62 0.15 250 / 0.7);
+  outline-offset: 2px;
 }
 
-/* Compat */
-.wrap {
-  width: 100%;
-  max-width: 72rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+/* Depth page section rhythm — tighter than homepage hero scale */
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
-.page-header {
-  padding: 5rem 0 3rem;
-  border-bottom: 1px solid var(--border);
-}
-.page-header .eyebrow {
-  font-size: 0.75rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.28em;
-  color: var(--primary);
-}
-.page-header h1 {
-  margin: 1.25rem 0 0;
-  max-width: 48rem;
-  font-family: var(--font-serif);
-  font-weight: 300;
-  font-size: clamp(2rem, 4.5vw, 3.5rem);
-  line-height: 1.08;
-}
-.page-header .sub {
-  margin-top: 1.5rem;
-  max-width: 40rem;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--muted-foreground);
+@media (min-width: 768px) {
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
 }
