@@ -30,6 +30,14 @@
   border: 1px solid var(--border); background: transparent;
   color: var(--muted-foreground); border-radius: 9999px;
   padding: 0.4rem 0.9rem; font-size: 0.8rem; font-weight: 500; cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+}
+.db-filters button:hover:not([aria-pressed="true"]) {
+  color: var(--foreground); border-color: oklch(1 0 0 / 16%);
+}
+.db-filters button:active { transform: scale(0.97); }
+.db-filters button:focus-visible {
+  outline: 2px solid oklch(0.62 0.15 250 / 0.7); outline-offset: 2px;
 }
 .db-filters button[aria-pressed="true"] {
   background: var(--primary); color: var(--primary-foreground); border-color: transparent;
@@ -47,10 +55,12 @@
 .ex-card {
   border: 1px solid var(--border); border-radius: 1rem;
   background: var(--card); padding: 1.25rem 1.35rem;
-  cursor: pointer; transition: border-color 0.15s, transform 0.15s;
+  cursor: pointer; transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   text-align: left; width: 100%; color: inherit; font: inherit;
 }
-.ex-card:hover { border-color: oklch(0.62 0.15 250 / 0.45); transform: translateY(-1px); }
+.ex-card:hover { border-color: oklch(0.62 0.15 250 / 0.45); transform: translateY(-1px); box-shadow: 0 8px 24px oklch(0 0 0 / 0.25); }
+.ex-card:active { transform: scale(0.99) translateY(0); }
+.ex-card:focus-visible { outline: 2px solid oklch(0.62 0.15 250 / 0.7); outline-offset: 2px; }
 .ex-card .tag {
   font-size: 0.65rem; font-weight: 500; text-transform: uppercase;
   letter-spacing: 0.18em; color: var(--primary);
@@ -74,6 +84,8 @@
   margin-top: 3rem; text-align: center; color: var(--muted-foreground);
   padding: 2rem; border: 1px dashed var(--border); border-radius: 1rem;
 }
+
+/* Detail drawer / panel */
 .detail-backdrop {
   position: fixed; inset: 0; background: oklch(0.1 0.01 255 / 0.65);
   z-index: 40; opacity: 0; pointer-events: none; transition: opacity 0.2s;
@@ -181,7 +193,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="solve_with_genesis_logo_clean.png" alt="Solve with Genesis" width="220" height="70" style="height:2.75rem;width:auto;border-radius:0.375rem"/>
-        <p>Business risk &amp; security advisory. Better decisions, right-sized programs.</p>
+        <p>Business risk & security advisory. Better decisions, right-sized programs.</p>
       </div>
       <nav class="footer-nav" aria-label="Footer">
         <a href="/">Home</a>
