@@ -6,5 +6,3 @@ Disallow: /principles.html
 Disallow: /phase-1-exercises.html
 Disallow: /phase-2-exercises.html
 Disallow: /phase-3-exercises.html
-Disallow: /exercises-db.js
-Disallow: /cycling-data.js
